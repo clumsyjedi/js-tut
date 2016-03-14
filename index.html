@@ -1,0 +1,387 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/white.css">
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section>
+                <h2>Introduction to Essential Web Technology</h2>
+
+                <p class="fragment">Welcome one and all</p>
+                <p class="fragment">You have made a terrible mistake</p>
+                <p class="fragment">We are going to broadly cover three topics today:</p>
+                <ul>
+                    <li class="fragment">HTML and the Document Object Model (DOM)</li>
+                    <li class="fragment">The JavaScript Programming Language</li>
+                    <li class="fragment">The HTTP Protocol</li>
+                </ul>
+                </section>
+
+                <section>
+                <h2>Getting Setup</h2>
+                <p class="fragment">Everyone needs to get a copy of the web server bundle</p>
+                <p class="fragment">Everyone needs a decent text editor</p>
+                <p class="fragment">Everyone needs Chrome, and none of that Canary sh*te please</p>
+                </section>
+
+                <section>
+                <h2>How the Internet Works</h2>
+                <img src="/images/how.png" height="50%">
+                <p class="fragment">There's cats in there somewhere</p>
+                </section>
+
+                <section>
+                <h2>How the Internet Really Works</h2>
+                <p class="fragment">Servers and clients connected by cables and wifi to each other</p>
+                <p class="fragment">Servers host resources (like web pages)</p>
+                <p class="fragment">Clients want to see the resources</p>
+                <p class="fragment">They negotiate for resources by "speaking" HTTP (Hyper Text Transfer Protocol) </p>
+                <p class="fragment">The most popular type of resource is HTML pages (Hyper Text Markup Language)</p>
+                <p class="fragment">Hyper Text is the term for system of clickable resources that web pages are made up of.</p>
+                <p class="fragment">This whole system, taken collectively, is called WWW (World Wide Web), which is different to the Internet, so I guess I didn't answer the question.</p>
+                <p class="fragment">NO REFUNDS</p>
+
+                </section>
+
+                <section>
+                <h2>Hyper Color (TM)</h2>
+                <img src="/images/hypercolor.gif" height="50%">
+                </section>
+
+                <section>
+                <h2>HTML and Web Pages</h2>
+                <p class="fragment">
+                <a target="_blank" href="/examples/ex1.html">View Example 1</a>
+                </p>
+
+                <p class="fragment">Text formatting has been applied using tags like bold: &lt;b&gt;</p>
+                <p class="fragment">Exercise:</p>
+                <ul>
+                    <li class="fragment">Download the example file to your computer
+                    <li class="fragment">Open the downloaded file in your browser. Note that hypertext files can be opened by browsers independently of web servers.
+                    <li class="fragment">Change the word "hypertext" to be bold
+                    <li class="fragment">Change the word "including" to be bold, italic and underlined
+                </ul>
+                </section>
+
+                <section>
+                <section>
+                <h2>Documents and DOMs</h2>
+                <p class="fragment">
+                <a target="_blank" href="/examples/ex1.html">View Example 1</a>
+                </p>
+                <p class="fragment">Open the Developer tools tab of Chrome</p>
+                <p class="fragment">Look at the elements tab</p>
+                <p class="fragment">WTF? Where did all this extra HTML come from</p>
+                <p class="fragment">This is the DOM</p>
+
+                </section>
+                <section>
+                <h2>The DOM</h2>
+                <p class="fragment">DOM stands for Document Object Model</p>
+                <p class="fragment">This is how the browser has interpreted the HTML code</p>
+                <p class="fragment">It is a <a href="https://en.wikipedia.org/wiki/Tree_(data_structure)" target="_blank">tree</a> of elements like the ones we manipulated in the previous example.</p>
+
+
+                </section>
+
+                <section>
+                <h2>Who's your daddy?</h2>
+                <p class="fragment">In a tree every node has a parent, and might have many children.</p>
+                <p class="fragment">In a DOM, nodes are called elements, and the top element is called the document Element.</p>
+                <img class="fragment" src="/images/tree.png">
+                </section>
+
+
+                </section>
+
+
+                <section>
+                <h2>A brief foray into javascript</h2>
+                <p class="fragment">HTML is a declarative markup language</p>
+                <p class="fragment">It cannot be used to contril killer death robots, because it is not "Turing Complete"</p>
+                <p class="fragment">JavaScript is an imperative and functional language, which IS Turing complete, and which adds significant power and expressivness to the web</p>
+                </section>
+
+                <section>
+                <h2>Some JavaScript examples</h2>
+                <pre class="fragment">1 + 1</pre>
+                <pre class="fragment">var i = 1;</pre>
+                <pre class="fragment">alert(i)</pre>
+                <pre class="fragment">for (var j = i; j &lt; 10; j++) {
+  console.log(j);
+}</pre>
+                </section>
+
+                <section>
+                <h2>Manipulating the DOM with JavaScript</h2>
+                <p class="fragment">This is the big reveal for you guys</p>
+                <p class="fragment">JavaScript, when run in the browser, has the entire DOM available to it as a tree</p>
+                <pre class="fragment">document</pre>
+                <pre class="fragment">document.documentElement</pre>
+                <pre class="fragment">document.documentElement.childNodes</pre>
+
+                </section>
+
+                <section>
+                <h2>Queries and CSS Selectors</h2>
+                <p class="fragment">Walking the tree to find stuff is very laborious</p>
+                <p class="fragment">a better way is document queries and CSS selectors</p>
+                <p class="fragment">Like SQL but for the DOM</p>
+                <pre class="fragment">document.querySelectorAll('.adHolder')</pre>
+                <p class="fragment">But to write CSS selector queries, we have to understand more of the nuts and bolts of the DOM</p>
+                </section>
+
+                <section>
+                <h2>FFS more DOM</h2>
+                <img class="fragment" src="/images/div_tag.png">
+                </section>
+
+                <section>
+                <h2>Glossary of DOM Element terms</h2>
+                <p class="fragment">tag: The type of the element</p>
+                <p class="fragment">id: The unique identifier or name of the element</p>
+                <p class="fragment">classes: A list of stylistic labels for the element</p>
+                <p class="fragment">text: the textual, non-HTML child of the element</p>
+                </section>
+
+                <section>
+                <h2>Back to selectors</h2>
+                <p class="fragment">CSS selector queries are generally composed of tags, ids and classes</p>
+                <p class="fragment">EG. div.adHolder#adx_page_skins refers to the tag div, with the ID adx_page_skins and the class adHolder</p>
+
+                </section>
+
+                <section>
+                <h2>Now back to me</h2>
+                <p class="fragment">Tag selectors are just the tag name</p>
+                <pre class="fragment">document.querySelectorAll('div')</pre>
+                </section>
+
+                <section>
+                <h2>Now back to CSS selectors</h2>
+                <p class="fragment">class selectors are the name of the class, preceded by a dot</p>
+                <pre class="fragment">document.querySelectorAll('.adHolder')</pre>
+                </section>
+
+                <section>
+                <h2>Now back to me</h2>
+                <p class="fragment">id selectors are the id, preceded by a hash</p>
+                <pre class="fragment">document.querySelectorAll('#adx_page_skins')</pre>
+                </section>
+
+                <section>
+                <h2>Combining selectors</h2>
+                <p class="fragment">Remember that the DOM is a tree</p>
+                <p class="fragment">Sometimes it is hard to find an element because it has no ID, and no rare classes</p>
+                <p class="fragment">document.querySelectorAll('div') returns around 350 results</p>
+                <p class="fragment">The trick is to combine selectors to identify nodes not just by their own properties, but by their position in the tree</p>
+                </section>
+
+                <section>
+                <h2>Combining Selectors II</h2>
+                <p class="fragment">Separate selector parts by a space to reference descendant nodes</p>
+                <pre class="fragment">document.querySelectorAll('div p')</pre>
+                <p class="fragment">Returns all the paragraphs that are descendants of divs</p>
+                <p class="fragment">Descendants, not children</p>
+                <p class="fragment">The trick is to combine selectors to identify nodes not just by their own properties, but by their position in the tree</p>
+                </section>
+
+
+                <section>
+                <h2>Exercises</h2>
+                <p class="fragment">Go to http://www.dailymail.co.uk</p>
+                <p class="fragment">Tell me how many elements have the adHolder class</p>
+                <p class="fragment">How many of these have descendents with the type iframe?</p>
+                </section>
+
+
+                <section>
+                <h2>WTF is an iframe anyway</h2>
+                <p class="fragment">It's a document</p>
+                <p class="fragment">It sits inside our main document</p>
+                <p class="fragment">It has a documentElement</p>
+                <p class="fragment">You can't query across documents or run avascript in one doc that affects another</p>
+                <p class="fragment">Most of our ads are run inside iframes, to prevent malicious advertisers from messing with our users.</p>
+                </section>
+
+                <section>
+                <h2>Using JavaScript to break the iframe barrier</h2>
+                <p class="fragment">Open <a target="_blank" href="/examples/ex2.html">example 2</a> in your editor</p>
+                <p class="fragment">Close chrome</p>
+                <p class="fragment">Re-open chrome from your terminal, and give the flag "--disable-web-security"</p>
+                <p class="fragment">Navigate to the home page</p>
+                <p class="fragment">Paste the code fragemnt between the &lt;script&gt; tags</p>
+                </section>
+
+                <section>
+                <h2>What is happening in this javascript example</h2>
+                </section>
+
+
+                <section>
+                <h2>Variables</h2>
+                <p class="fragment">Lines 11, 13, 18, 19, 21, 26, 27, 28, 29</p>
+                <pre class="fragment">
+var x = "value";
+x += " for money";
+console.log(x);
+</pre>
+                </section>
+
+                <section>
+                <h2>Arrays</h2>
+                <p class="fragment">Line 3, 18, 21, 22, 26, 27, 28 and so many more</p>
+                <p class="fragment">Arrays are how we store lists of scalars</p>
+                <pre class="fragment">
+var x = ["value"];
+x.push("for");
+x.push("money");
+console.log(x);
+</pre>
+                </section>
+
+
+                <section>
+                <h2>Conditionals</h2>
+                <p class="fragment">Lines 6, 17</p>
+                <pre class="fragment">
+if(doc) {
+    // do some stuff
+} else {
+    // do other stuff
+}
+</pre>
+                <p class="fragment">Variables can be strings, numbers and arrays</p>
+                </section>
+
+                <section>
+                <h2>Loops</h2>
+                <p class="fragment">Line 19, 27, 38, 41</p>
+                <pre class="fragment">
+for (var x = 0; x &lt; 10; x++) {
+    console.log(x);
+}</pre>
+                </section>
+
+                <section>
+                <h2>Functions</h2>
+                <p class="fragment">Lines 2-39</p>
+                <pre class="fragment">
+function addNumbers (x, y) {
+    return x + y;
+}</pre>
+                </section>
+
+                <section>
+                <h2>Recursion</h2>
+                <p class="fragment">Line 29</p>
+                <pre class="fragment">
+function counter (from, limit) {
+    if (from &lt; limit) {
+        return from + counter(from + 1, limit);
+    } else {
+        return from;
+    }
+}
+</pre>
+                </section>
+
+                <section>
+                <h2>HTTP and networking</h2>
+                <p class="fragment">Enough boring stuff</p>
+                <p class="fragment">Let's talk about low level network protocols</p>
+                <p class="fragment">In HTTP we send a request and receive a response. Very simple.</p>
+                </section>
+
+                <section>
+                <h2>HTTP Requests</h2>
+                <p class="fragment">It's a request line followed by request headers</p>
+                <pre class="fragment">
+GET /femail/index.html HTTP/1.0
+Host: www.dailymail.co.uk
+Accept: text/html
+
+</pre>
+                </section>
+
+                <section>
+                <h2>HTTP Responses</h2>
+                <p class="fragment">It's a response line followed by response headers, followed by content</p>
+                <pre class="fragment">
+HTTP/1.0 200 Success
+Accept: text/html
+Cache-Control: private
+Content-Type: text/html
+
+<html><body>lol</body></html>
+</pre>
+                </section>
+
+                <section>
+                <h2>Request methods</h2>
+                <p class="fragment">GET - give me a resource</p>
+                <p class="fragment">POST + body - save the data I am sending you at the resource</p>
+                <p class="fragment">DELETE - remove the resource</p>
+                </section>
+
+
+                <section>
+                <h2>Response Codes</h2>
+                <p class="fragment">200 + body - Success</p>
+                <p class="fragment">30x + Location header - Moved</p>
+                <p class="fragment">40x - You fucked up (you being the client)</p>
+                <p class="fragment">50x - We fucked up (we being the client)</p>
+                </section>
+
+                <section>
+                <h2>HTTP Requests in Video Ads</h2>
+                <p class="fragment">Go toi http://www.dailymail.co.uk/video/index.html</p>
+                <p class="fragment">Open the JS console, and the networking tab</p>
+                <p class="fragment">After the page has fully loaded, clear the tab with the Ghostbusters icon</p>
+                <p class="fragment">Play the video, the first few requests will be for
+                <ul>
+                    <li>The video file
+                    <li>The ad
+                    <li>Tracking pixels for RTA and comscore 
+                </ul></p>
+                <p class="fragment">Anyone? want to guess which is which?</p>
+                </section>
+
+                <section>
+                <h2>HTTP Requests in Display Ads</h2>
+                <p class="fragment">Open the JS console, and the networking tab</p>
+                <p class="fragment">Go toi http://www.dailymail.co.uk/femail/index.html</p>
+                <p class="fragment">After the page has fully loaded, filter the tab to reqs matchin gampad</p>
+                <p class="fragment">These are the raw requests we make to DFP</p>
+                </section>
+
+
+<!--
+## The DOM / elements view
+
+### Anatomy of a document
+
+  - HTML Pages
+  - The document element
+  - Children
+    - Text Nodes
+  - CSS Selectors
+  - Identifying ads on DM pages
+  - Iframes
+    - Sub-documents
+    - Ad documents
+    --> 
+
+                </section>
+            </div>
+        </div>
+        <script src="js/reveal.js"></script>
+        <script>
+            Reveal.initialize();
+        </script>
+    </body>
+</html>
+

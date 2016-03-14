@@ -1,0 +1,48 @@
+<script type="text/javascript">
+    function imagesForIframe (iframe) {
+        var rv = [];
+
+        // sanity check
+        if (!iframe) {
+            return rv;
+        }
+
+        // not all iframes have documents available to us
+        var doc;
+        try {
+            doc = iframe.contentDocument || iframe.contentWindow.document;
+        } catch (e) {
+            console.log('caught exception', e);
+        }
+        if (doc) {
+            var mpuLike = iframe.contentDocument.querySelectorAll('img');
+            for (var j = 0; j < mpuLike.length; j++) {
+                // array access
+                var mpu = mpuLike[j];
+                rv.push(mpu);
+            }
+
+            // recurse for child iframes
+            var subFrames = iframe.contentDocument.querySelectorAll('iframe');
+            for (var l = 0; l <= subFrames.length; l++) {
+                var subFrame = subFrames[l];
+                rv = rv.concat(imagesForIframe(subFrame));
+            }
+        } else {
+            // console.log('no content doc', iframe);
+        }
+        return rv;
+    }
+
+    var iframes = document.querySelectorAll('div.adHolder iframe');
+    for (var i = 0; i < iframes.length; i++) {
+        var iframe = iframes[i];
+        var images = imagesForIframe(iframe);
+        for (var k = 0; k < images.length; k++) {
+            var image = images[k];
+            console.log('image', image.tagName, image.src, image.width, image.height)
+        }
+    }
+</script>
+
+There's nothing here :o
